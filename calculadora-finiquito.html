@@ -6,9 +6,10 @@
 
 <title>Calculadora de Finiquito 2026 | CalculaFácil</title>
 
-<meta name="description" content="Calcula tu finiquito en España de forma orientativa. Incluye salario pendiente, vacaciones no disfrutadas y pagas extraordinarias.">
+<meta name="description" content="Calcula de forma orientativa tu finiquito en España. Incluye salario pendiente, vacaciones no disfrutadas y pagas extraordinarias.">
 
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -58,6 +59,7 @@ h1 {
 .intro {
     color: #6b7280;
     margin-bottom: 30px;
+    max-width: 750px;
 }
 
 .calculator,
@@ -101,10 +103,16 @@ select {
     background: white;
 }
 
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
 .help {
     font-size: 12px;
     color: #6b7280;
-    margin-top: 5px;
+    margin-top: 6px;
 }
 
 .extra-box {
@@ -144,9 +152,14 @@ button:hover {
     padding: 25px;
 }
 
+.result h2 {
+    margin-bottom: 18px;
+}
+
 .row {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
     padding: 10px 0;
     border-bottom: 1px solid #dbeafe;
 }
@@ -154,14 +167,15 @@ button:hover {
 .total {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
     margin-top: 18px;
     font-size: 23px;
     font-weight: bold;
 }
 
 .explanation {
-    margin-top: 20px;
-    padding: 15px;
+    margin-top: 22px;
+    padding: 16px;
     background: white;
     border-radius: 8px;
     font-size: 14px;
@@ -204,6 +218,7 @@ footer {
 }
 
 @media (max-width: 650px) {
+
     h1 {
         font-size: 30px;
     }
@@ -222,19 +237,26 @@ footer {
         flex-direction: column;
         gap: 4px;
     }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <header>
-    <div class="header">
-        <a href="index.html" class="logo">
-            Calcula<span>Fácil</span>
-        </a>
-    </div>
+
+<div class="header">
+
+<a href="index.html" class="logo">
+Calcula<span>Fácil</span>
+</a>
+
+</div>
+
 </header>
+
 
 <main>
 
@@ -245,7 +267,9 @@ Calcula de forma orientativa cuánto podrías recibir al finalizar
 tu relación laboral en España.
 </p>
 
+
 <div class="calculator">
+
 
 <!-- CONTRATO -->
 
@@ -256,16 +280,34 @@ tu relación laboral en España.
 <div class="grid">
 
 <div>
-<label>Fecha de inicio</label>
-<input type="date" id="inicio">
+
+<label for="inicio">
+Fecha de inicio
+</label>
+
+<input
+type="date"
+id="inicio"
+>
+
 </div>
+
 
 <div>
-<label>Fecha de finalización</label>
-<input type="date" id="fin">
+
+<label for="fin">
+Fecha de finalización
+</label>
+
+<input
+type="date"
+id="fin"
+>
+
 </div>
 
 </div>
+
 </div>
 
 
@@ -278,34 +320,73 @@ tu relación laboral en España.
 <div class="grid">
 
 <div>
-<label>Salario bruto mensual (€)</label>
-<input type="number" id="salario" min="0" step="0.01" placeholder="Ej. 1800">
+
+<label for="salario">
+Salario bruto mensual (€)
+</label>
+
+<input
+type="number"
+id="salario"
+min="0"
+step="0.01"
+placeholder="Ej. 1800"
+>
+
+<div class="help">
+Introduce tu salario bruto mensual.
 </div>
 
+</div>
+
+
 <div>
-<label>Número de pagas</label>
+
+<label for="pagas">
+Número de pagas
+</label>
 
 <select id="pagas">
-<option value="12">12 pagas</option>
-<option value="14">14 pagas</option>
+
+<option value="12">
+12 pagas
+</option>
+
+<option value="14">
+14 pagas
+</option>
+
 </select>
 
 </div>
 
 </div>
+
 
 <div style="margin-top:18px">
 
-<label>¿Las pagas extra están prorrateadas?</label>
+<label for="prorrateadas">
+¿Las pagas extra están prorrateadas?
+</label>
 
-<select id="prorrateadas">
-<option value="no">No</option>
-<option value="si">Sí</option>
+<select
+id="prorrateadas"
+onchange="actualizarPagas()"
+>
+
+<option value="no">
+No
+</option>
+
+<option value="si">
+Sí
+</option>
+
 </select>
 
 <div class="help">
-Si las pagas extra ya aparecen repartidas en las nóminas
-mensuales, selecciona Sí.
+Si las pagas extraordinarias ya están incluidas
+en las nóminas mensuales, selecciona Sí.
 </div>
 
 </div>
@@ -322,13 +403,36 @@ mensuales, selecciona Sí.
 <div class="grid">
 
 <div>
-<label>Días de vacaciones al año</label>
-<input type="number" id="vacaciones" value="30" min="0" step="0.01">
+
+<label for="vacaciones">
+Días de vacaciones al año
+</label>
+
+<input
+type="number"
+id="vacaciones"
+value="30"
+min="0"
+step="0.01"
+>
+
 </div>
 
+
 <div>
-<label>Días disfrutados este año</label>
-<input type="number" id="disfrutadas" value="0" min="0" step="0.01">
+
+<label for="disfrutadas">
+Días disfrutados este año
+</label>
+
+<input
+type="number"
+id="disfrutadas"
+value="0"
+min="0"
+step="0.01"
+>
+
 </div>
 
 </div>
@@ -338,62 +442,208 @@ mensuales, selecciona Sí.
 
 <!-- PAGAS EXTRA -->
 
-<div class="section">
+<div
+class="section"
+id="seccionPagas"
+>
 
 <h2>🎁 Pagas extraordinarias</h2>
 
 <p class="help">
-Introduce las fechas de devengo que aparecen en tu convenio,
-contrato o documentación laboral.
+
+Introduce las fechas reales de devengo de tus pagas
+según tu convenio, contrato o documentación laboral.
+
 </p>
 
 
+<!-- EXTRA 1 -->
+
 <div class="extra-box">
 
-<h3>Paga extraordinaria 1</h3>
+<h3>
+Paga extraordinaria 1
+</h3>
 
 <div class="grid">
 
 <div>
-<label>Importe (€)</label>
-<input type="number" id="extra1importe" placeholder="Ej. 1800">
+
+<label for="extra1importe">
+Importe (€)
+</label>
+
+<input
+type="number"
+id="extra1importe"
+placeholder="Ej. 1800"
+min="0"
+step="0.01"
+>
+
 </div>
+
 
 <div>
-<label>Inicio del devengo</label>
-<input type="date" id="extra1inicio">
+
+<label for="extra1inicio">
+Inicio del devengo
+</label>
+
+<input
+type="date"
+id="extra1inicio"
+>
+
 </div>
+
 
 <div>
-<label>Fin del devengo</label>
-<input type="date" id="extra1fin">
-</div>
+
+<label for="extra1fin">
+Fin del devengo
+</label>
+
+<input
+type="date"
+id="extra1fin"
+>
 
 </div>
 
 </div>
 
+</div>
+
+
+<!-- EXTRA 2 -->
 
 <div class="extra-box">
 
-<h3>Paga extraordinaria 2</h3>
+<h3>
+Paga extraordinaria 2
+</h3>
 
 <div class="grid">
 
 <div>
-<label>Importe (€)</label>
-<input type="number" id="extra2importe" placeholder="Ej. 1800">
+
+<label for="extra2importe">
+Importe (€)
+</label>
+
+<input
+type="number"
+id="extra2importe"
+placeholder="Ej. 1800"
+min="0"
+step="0.01"
+>
+
 </div>
 
-<div>
-<label>Inicio del devengo</label>
-<input type="date" id="extra2inicio">
-</div>
 
 <div>
-<label>Fin del devengo</label>
-<input type="date" id="extra2fin">
+
+<label for="extra2inicio">
+Inicio del devengo
+</label>
+
+<input
+type="date"
+id="extra2inicio"
+>
+
 </div>
+
+
+<div>
+
+<label for="extra2fin">
+Fin del devengo
+</label>
+
+<input
+type="date"
+id="extra2fin"
+>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ULTIMO SALARIO -->
+
+<div class="section">
+
+<h2>💵 Último salario</h2>
+
+<label for="estadoSalario">
+¿Has cobrado ya el salario correspondiente al último periodo?
+</label>
+
+<select
+id="estadoSalario"
+onchange="mostrarSalario()"
+>
+
+<option value="si">
+Sí, completamente
+</option>
+
+<option value="no">
+No, todavía no
+</option>
+
+<option value="parcial">
+Parcialmente
+</option>
+
+</select>
+
+
+<div
+id="salarioParcialBox"
+style="display:none; margin-top:18px;"
+>
+
+<label for="salarioCobrado">
+¿Cuánto has cobrado ya? (€)
+</label>
+
+<input
+type="number"
+id="salarioCobrado"
+value="0"
+min="0"
+step="0.01"
+placeholder="Ej. 900"
+>
+
+<div class="help">
+
+Indicaremos como pendiente la diferencia entre
+el salario generado y lo que ya has cobrado.
+
+</div>
+
+</div>
+
+
+<div
+id="salarioAutomatico"
+style="display:none; margin-top:18px;"
+>
+
+<div class="help">
+
+El salario pendiente se calculará de forma orientativa
+según los días del último mes trabajados.
 
 </div>
 
@@ -411,13 +661,23 @@ contrato o documentación laboral.
 <div class="grid">
 
 <div>
-<label>Salario pendiente (€)</label>
-<input type="number" id="pendiente" value="0" min="0" step="0.01">
+
+<label for="otros">
+Otros conceptos pendientes (€)
+</label>
+
+<input
+type="number"
+id="otros"
+value="0"
+min="0"
+step="0.01"
+>
+
+<div class="help">
+Opcional.
 </div>
 
-<div>
-<label>Otros conceptos pendientes (€)</label>
-<input type="number" id="otros" value="0" min="0" step="0.01">
 </div>
 
 </div>
@@ -432,90 +692,161 @@ Calcular mi finiquito
 
 <!-- RESULTADO -->
 
-<div class="result" id="resultado">
+<div
+class="result"
+id="resultado"
+>
 
-<h2>Resultado estimado</h2>
+<h2>
+Resultado estimado
+</h2>
 
-<div class="row">
-<span>Salario pendiente</span>
-<strong id="rSalario">0,00 €</strong>
-</div>
-
-<div class="row">
-<span>Vacaciones no disfrutadas</span>
-<strong id="rVacaciones">0,00 €</strong>
-</div>
 
 <div class="row">
-<span>Paga extraordinaria 1</span>
-<strong id="rExtra1">0,00 €</strong>
+
+<span>
+Salario pendiente
+</span>
+
+<strong id="rSalario">
+0,00 €
+</strong>
+
 </div>
 
-<div class="row">
-<span>Paga extraordinaria 2</span>
-<strong id="rExtra2">0,00 €</strong>
-</div>
 
 <div class="row">
-<span>Otros conceptos</span>
-<strong id="rOtros">0,00 €</strong>
+
+<span>
+Vacaciones no disfrutadas
+</span>
+
+<strong id="rVacaciones">
+0,00 €
+</strong>
+
 </div>
+
+
+<div class="row">
+
+<span>
+Paga extraordinaria 1
+</span>
+
+<strong id="rExtra1">
+0,00 €
+</strong>
+
+</div>
+
+
+<div class="row">
+
+<span>
+Paga extraordinaria 2
+</span>
+
+<strong id="rExtra2">
+0,00 €
+</strong>
+
+</div>
+
+
+<div class="row">
+
+<span>
+Otros conceptos
+</span>
+
+<strong id="rOtros">
+0,00 €
+</strong>
+
+</div>
+
 
 <div class="total">
-<span>Finiquito estimado</span>
-<span id="rTotal">0,00 €</span>
+
+<span>
+Finiquito estimado
+</span>
+
+<span id="rTotal">
+0,00 €
+</span>
+
 </div>
 
 
-<div class="explanation" id="explicacion"></div>
+<div
+class="explanation"
+id="explicacion"
+>
+</div>
 
 
 <div class="warning">
-⚠️ Resultado orientativo. El cálculo real puede variar según
-el convenio colectivo, contrato, sistema de devengo, conceptos
-salariales y circunstancias concretas del trabajador.
-</div>
+
+⚠️ Este resultado es orientativo. El importe real puede variar
+según el convenio colectivo, contrato, sistema de devengo,
+conceptos salariales y circunstancias concretas.
 
 </div>
 
 </div>
 
+</div>
 
-<!-- SEO -->
+
+<!-- INFORMACIÓN -->
 
 <div class="info">
 
-<h2>¿Cómo se calcula un finiquito?</h2>
+<h2>
+¿Cómo se calcula un finiquito?
+</h2>
 
 <p>
-El finiquito es la liquidación de las cantidades que quedan
-pendientes entre la empresa y el trabajador cuando termina
-la relación laboral.
+El finiquito es la liquidación de las cantidades pendientes
+entre la empresa y el trabajador cuando termina la relación laboral.
 </p>
 
-<h3>Salario pendiente</h3>
+
+<h3>
+Salario pendiente
+</h3>
 
 <p>
-Puede incluir las cantidades correspondientes al trabajo
-realizado que todavía no hayan sido abonadas.
+Puede incluir las cantidades correspondientes al trabajo realizado
+que todavía no hayan sido abonadas.
 </p>
 
-<h3>Vacaciones no disfrutadas</h3>
+
+<h3>
+Vacaciones no disfrutadas
+</h3>
 
 <p>
 Las vacaciones generadas y no disfrutadas pueden formar parte
 de la liquidación final.
 </p>
 
-<h3>Pagas extraordinarias</h3>
+
+<h3>
+Pagas extraordinarias
+</h3>
 
 <p>
 La parte proporcional pendiente depende del sistema de devengo
-establecido en el convenio o contrato. Por eso esta calculadora
-permite introducir las fechas reales de cada paga.
+establecido en el convenio o contrato.
 </p>
 
-<h3>Finiquito e indemnización</h3>
+
+<h3>
+Finiquito e indemnización
+</h3>
 
 <p>
 El finiquito y la indemnización son conceptos diferentes.
@@ -527,21 +858,119 @@ de finalización del contrato.
 
 </main>
 
+
 <footer>
+
 © 2026 CalculaFácil · Calculadora orientativa
+
 </footer>
 
 
 <script>
 
+
+/* =========================
+   UTILIDADES
+========================= */
+
+
 function diasEntre(inicio, fin) {
 
-    const ms = 1000 * 60 * 60 * 24;
+    const ms =
+        1000 * 60 * 60 * 24;
 
     return Math.floor(
         (fin - inicio) / ms
     ) + 1;
+
 }
+
+
+function euros(valor) {
+
+    return valor.toLocaleString(
+        "es-ES",
+        {
+            style: "currency",
+            currency: "EUR"
+        }
+    );
+
+}
+
+
+/* =========================
+   MOSTRAR / OCULTAR PAGAS
+========================= */
+
+
+function actualizarPagas() {
+
+    const prorrateadas =
+        document.getElementById(
+            "prorrateadas"
+        ).value;
+
+    const seccion =
+        document.getElementById(
+            "seccionPagas"
+        );
+
+    if (prorrateadas === "si") {
+
+        seccion.style.opacity = "0.5";
+
+    } else {
+
+        seccion.style.opacity = "1";
+
+    }
+
+}
+
+
+/* =========================
+   SALARIO
+========================= */
+
+
+function mostrarSalario() {
+
+    const estado =
+        document.getElementById(
+            "estadoSalario"
+        ).value;
+
+
+    const parcial =
+        document.getElementById(
+            "salarioParcialBox"
+        );
+
+
+    const automatico =
+        document.getElementById(
+            "salarioAutomatico"
+        );
+
+
+    parcial.style.display =
+        estado === "parcial"
+            ? "block"
+            : "none";
+
+
+    automatico.style.display =
+        estado === "no"
+            ? "block"
+            : "none";
+
+}
+
+
+/* =========================
+   PAGA EXTRA
+========================= */
 
 
 function calcularParteExtra(
@@ -556,116 +985,197 @@ function calcularParteExtra(
         !inicioDevengo ||
         !finDevengo
     ) {
+
         return 0;
+
     }
 
-    const inicio = new Date(inicioDevengo);
-    const fin = new Date(finDevengo);
-    const contrato = new Date(fechaFinContrato);
 
-    if (fin <= inicio) {
+    const inicio =
+        new Date(
+            inicioDevengo
+        );
+
+    const fin =
+        new Date(
+            finDevengo
+        );
+
+    const contrato =
+        new Date(
+            fechaFinContrato
+        );
+
+
+    if (fin < inicio) {
+
         return 0;
+
     }
 
-    /*
-       Si el contrato termina antes del comienzo
-       del periodo de devengo, no se ha generado esa paga.
-    */
 
     if (contrato < inicio) {
+
         return 0;
+
     }
+
 
     const fechaCalculo =
         contrato < fin
             ? contrato
             : fin;
 
+
     const diasDevengo =
-        diasEntre(inicio, fin);
+        diasEntre(
+            inicio,
+            fin
+        );
+
 
     const diasGenerados =
-        diasEntre(inicio, fechaCalculo);
+        diasEntre(
+            inicio,
+            fechaCalculo
+        );
 
-    if (diasGenerados <= 0) {
+
+    if (
+        diasDevengo <= 0 ||
+        diasGenerados <= 0
+    ) {
+
         return 0;
+
     }
 
+
     return importe *
-        (diasGenerados / diasDevengo);
+        (
+            diasGenerados /
+            diasDevengo
+        );
+
 }
+
+
+/* =========================
+   CALCULAR
+========================= */
 
 
 function calcular() {
 
+
     const inicio =
-        document.getElementById("inicio").value;
+        document.getElementById(
+            "inicio"
+        ).value;
+
 
     const fin =
-        document.getElementById("fin").value;
+        document.getElementById(
+            "fin"
+        ).value;
+
 
     const salario =
         parseFloat(
-            document.getElementById("salario").value
+            document.getElementById(
+                "salario"
+            ).value
         );
+
 
     const vacacionesAnuales =
         parseFloat(
-            document.getElementById("vacaciones").value
+            document.getElementById(
+                "vacaciones"
+            ).value
         );
+
 
     const vacacionesDisfrutadas =
         parseFloat(
-            document.getElementById("disfrutadas").value
+            document.getElementById(
+                "disfrutadas"
+            ).value
         ) || 0;
+
 
     const prorrateadas =
-        document.getElementById("prorrateadas").value;
+        document.getElementById(
+            "prorrateadas"
+        ).value;
 
-    const pendiente =
+
+    const estadoSalario =
+        document.getElementById(
+            "estadoSalario"
+        ).value;
+
+
+    const salarioCobrado =
         parseFloat(
-            document.getElementById("pendiente").value
+            document.getElementById(
+                "salarioCobrado"
+            ).value
         ) || 0;
+
 
     const otros =
         parseFloat(
-            document.getElementById("otros").value
+            document.getElementById(
+                "otros"
+            ).value
         ) || 0;
 
 
-    if (!inicio || !fin || !salario) {
+    /* VALIDACIONES */
+
+
+    if (
+        !inicio ||
+        !fin ||
+        !salario
+    ) {
 
         alert(
             "Introduce las fechas y el salario bruto mensual."
         );
 
         return;
+
     }
 
 
     const fechaInicio =
         new Date(inicio);
 
+
     const fechaFin =
         new Date(fin);
 
 
-    if (fechaFin < fechaInicio) {
+    if (
+        fechaFin <
+        fechaInicio
+    ) {
 
         alert(
             "La fecha de finalización no puede ser anterior a la fecha de inicio."
         );
 
         return;
+
     }
 
 
-    /*
+    /* =========================
        VACACIONES
+    ========================= */
 
-       Calculamos la parte proporcional del año
-       correspondiente a la fecha de finalización.
-    */
 
     const inicioAno =
         new Date(
@@ -674,6 +1184,7 @@ function calcular() {
             1
         );
 
+
     const finAno =
         new Date(
             fechaFin.getFullYear(),
@@ -681,10 +1192,13 @@ function calcular() {
             31
         );
 
+
     const inicioVacaciones =
-        fechaInicio > inicioAno
+        fechaInicio >
+        inicioAno
             ? fechaInicio
             : inicioAno;
+
 
     const diasAno =
         diasEntre(
@@ -692,11 +1206,13 @@ function calcular() {
             finAno
         );
 
+
     const diasTrabajadosAno =
         diasEntre(
             inicioVacaciones,
             fechaFin
         );
+
 
     let vacacionesGeneradas =
         vacacionesAnuales *
@@ -705,117 +1221,250 @@ function calcular() {
             diasAno
         );
 
+
     let vacacionesPendientes =
         vacacionesGeneradas -
         vacacionesDisfrutadas;
 
-    if (vacacionesPendientes < 0) {
+
+    if (
+        vacacionesPendientes < 0
+    ) {
+
         vacacionesPendientes = 0;
+
     }
+
 
     const salarioDia =
         salario / 30;
+
 
     const importeVacaciones =
         vacacionesPendientes *
         salarioDia;
 
 
-    /*
-       PAGAS EXTRA
+    /* =========================
+       ÚLTIMO SALARIO
+    ========================= */
 
-       Si están prorrateadas no calculamos cantidades
-       adicionales.
-    */
+
+    let salarioPendiente =
+        0;
+
+
+    if (
+        estadoSalario === "si"
+    ) {
+
+        salarioPendiente = 0;
+
+    }
+
+
+    else {
+
+
+        const ultimoMesInicio =
+            new Date(
+                fechaFin.getFullYear(),
+                fechaFin.getMonth(),
+                1
+            );
+
+
+        const diaFinal =
+            fechaFin.getDate();
+
+
+        let salarioGenerado =
+            diaFinal *
+            salarioDia;
+
+
+        if (
+            estadoSalario ===
+            "parcial"
+        ) {
+
+            salarioPendiente =
+                Math.max(
+                    0,
+                    salarioGenerado -
+                    salarioCobrado
+                );
+
+        }
+
+        else {
+
+            salarioPendiente =
+                salarioGenerado;
+
+        }
+
+    }
+
+
+    /* =========================
+       PAGAS EXTRA
+    ========================= */
+
 
     let extra1 = 0;
     let extra2 = 0;
 
-    if (prorrateadas === "no") {
+
+    if (
+        prorrateadas === "no"
+    ) {
+
 
         extra1 =
             calcularParteExtra(
+
                 parseFloat(
                     document.getElementById(
                         "extra1importe"
                     ).value
                 ),
+
                 document.getElementById(
                     "extra1inicio"
                 ).value,
+
                 document.getElementById(
                     "extra1fin"
                 ).value,
+
                 fin
+
             );
+
 
         extra2 =
             calcularParteExtra(
+
                 parseFloat(
                     document.getElementById(
                         "extra2importe"
                     ).value
                 ),
+
                 document.getElementById(
                     "extra2inicio"
                 ).value,
+
                 document.getElementById(
                     "extra2fin"
                 ).value,
+
                 fin
+
             );
+
     }
 
 
+    /* =========================
+       TOTAL
+    ========================= */
+
+
     const total =
-        pendiente +
+        salarioPendiente +
         importeVacaciones +
         extra1 +
         extra2 +
         otros;
 
 
-    function euros(valor) {
-
-        return valor.toLocaleString(
-            "es-ES",
-            {
-                style: "currency",
-                currency: "EUR"
-            }
-        );
-    }
+    /* =========================
+       RESULTADO
+    ========================= */
 
 
     document.getElementById(
         "rSalario"
     ).textContent =
-        euros(pendiente);
+        euros(
+            salarioPendiente
+        );
+
 
     document.getElementById(
         "rVacaciones"
     ).textContent =
-        euros(importeVacaciones);
+        euros(
+            importeVacaciones
+        );
+
 
     document.getElementById(
         "rExtra1"
     ).textContent =
-        euros(extra1);
+        euros(
+            extra1
+        );
+
 
     document.getElementById(
         "rExtra2"
     ).textContent =
-        euros(extra2);
+        euros(
+            extra2
+        );
+
 
     document.getElementById(
         "rOtros"
     ).textContent =
-        euros(otros);
+        euros(
+            otros
+        );
+
 
     document.getElementById(
         "rTotal"
     ).textContent =
-        euros(total);
+        euros(
+            total
+        );
+
+
+    /* =========================
+       EXPLICACIÓN
+    ========================= */
+
+
+    let textoSalario = "";
+
+
+    if (
+        estadoSalario === "si"
+    ) {
+
+        textoSalario =
+            "Has indicado que el último salario ya está completamente cobrado.";
+
+    }
+
+    else if (
+        estadoSalario === "no"
+    ) {
+
+        textoSalario =
+            "Se ha estimado el salario pendiente utilizando los días del último mes hasta la fecha de finalización.";
+
+    }
+
+    else {
+
+        textoSalario =
+            "Se ha restado del salario estimado del último periodo la cantidad que indicaste como ya cobrada.";
+
+    }
 
 
     document.getElementById(
@@ -824,25 +1473,39 @@ function calcular() {
 
         "<strong>¿Cómo se ha calculado?</strong><br><br>" +
 
+        textoSalario +
+
+        "<br><br>" +
+
         "Vacaciones generadas: " +
+
         vacacionesGeneradas.toFixed(2) +
+
         " días.<br>" +
 
         "Vacaciones pendientes: " +
+
         vacacionesPendientes.toFixed(2) +
+
         " días.<br>" +
 
         "Valor utilizado por día: " +
-        euros(salarioDia) +
+
+        euros(
+            salarioDia
+        ) +
+
         ".<br><br>" +
 
         "Las pagas extraordinarias se han calculado " +
-        "según las fechas de devengo que has introducido.";
+
+        "según las fechas de devengo introducidas.";
 
 
     document.getElementById(
         "resultado"
-    ).style.display = "block";
+    ).style.display =
+        "block";
 
 
     document.getElementById(
@@ -850,7 +1513,14 @@ function calcular() {
     ).scrollIntoView({
         behavior: "smooth"
     });
+
 }
+
+
+/* Inicialización */
+
+actualizarPagas();
+mostrarSalario();
 
 </script>
 
