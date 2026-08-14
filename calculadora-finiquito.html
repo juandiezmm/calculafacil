@@ -6,7 +6,7 @@
 
 <title>Calculadora de Finiquito 2026 | CalculaFácil</title>
 
-<meta name="description" content="Calcula de forma orientativa tu finiquito en España. Incluye salario pendiente, vacaciones no disfrutadas y pagas extraordinarias.">
+<meta name="description" content="Calcula de forma orientativa tu finiquito e indemnización en España. Incluye salario pendiente, vacaciones no disfrutadas y pagas extraordinarias.">
 
 <style>
 
@@ -173,6 +173,12 @@ button:hover {
     font-weight: bold;
 }
 
+.subtotal {
+    margin-top: 22px;
+    padding-top: 18px;
+    border-top: 2px solid #bfdbfe;
+}
+
 .explanation {
     margin-top: 22px;
     padding: 16px;
@@ -260,7 +266,7 @@ Calcula<span>Fácil</span>
 
 <main>
 
-<h1>Calculadora de Finiquito</h1>
+<h1>Calculadora de Finiquito e Indemnización</h1>
 
 <p class="intro">
 Calcula de forma orientativa cuánto podrías recibir al finalizar
@@ -457,8 +463,6 @@ según tu convenio, contrato o documentación laboral.
 </p>
 
 
-<!-- EXTRA 1 -->
-
 <div class="extra-box">
 
 <h3>
@@ -515,8 +519,6 @@ id="extra1fin"
 
 </div>
 
-
-<!-- EXTRA 2 -->
 
 <div class="extra-box">
 
@@ -626,10 +628,7 @@ placeholder="Ej. 900"
 >
 
 <div class="help">
-
-Indicaremos como pendiente la diferencia entre
-el salario generado y lo que ya has cobrado.
-
+Se restará esta cantidad del salario estimado.
 </div>
 
 </div>
@@ -647,6 +646,100 @@ según los días del último mes trabajados.
 
 </div>
 
+</div>
+
+</div>
+
+
+<!-- MOTIVO -->
+
+<div class="section">
+
+<h2>⚖️ Motivo de finalización</h2>
+
+<label for="motivo">
+¿Por qué termina tu relación laboral?
+</label>
+
+<select
+id="motivo"
+onchange="actualizarIndemnizacion()"
+>
+
+<option value="fin_contrato">
+Fin de contrato temporal
+</option>
+
+<option value="objetivo">
+Despido por causas objetivas
+</option>
+
+<option value="improcedente">
+Despido declarado improcedente
+</option>
+
+<option value="voluntaria">
+Baja voluntaria
+</option>
+
+<option value="otro">
+Otro / No lo sé
+</option>
+
+</select>
+
+<div
+class="help"
+id="ayudaMotivo"
+>
+
+En determinados contratos temporales puede corresponder
+una indemnización de 12 días de salario por año de servicio.
+
+</div>
+
+</div>
+
+
+<!-- ANTIGÜEDAD -->
+
+<div class="section">
+
+<h2>📆 Antigüedad para la indemnización</h2>
+
+<div class="grid">
+
+<div>
+
+<label for="inicioIndemnizacion">
+Inicio
+</label>
+
+<input
+type="date"
+id="inicioIndemnizacion"
+>
+
+</div>
+
+
+<div>
+
+<label for="finIndemnizacion">
+Finalización
+</label>
+
+<input
+type="date"
+id="finIndemnizacion"
+>
+
+</div>
+
+</div>
+
+<div class="help">
+Si no introduces estas fechas, se utilizarán las fechas del contrato.
 </div>
 
 </div>
@@ -700,6 +793,11 @@ id="resultado"
 <h2>
 Resultado estimado
 </h2>
+
+
+<h3 style="margin-top:20px;margin-bottom:10px;">
+Finiquito
+</h3>
 
 
 <div class="row">
@@ -780,6 +878,56 @@ Finiquito estimado
 </div>
 
 
+<!-- INDEMNIZACION -->
+
+<div class="subtotal">
+
+<h3 style="margin-bottom:15px;">
+Indemnización
+</h3>
+
+
+<div class="row">
+
+<span>
+Días de indemnización
+</span>
+
+<strong id="rDiasIndemnizacion">
+0 días
+</strong>
+
+</div>
+
+
+<div class="row">
+
+<span>
+Indemnización estimada
+</span>
+
+<strong id="rIndemnizacion">
+0,00 €
+</strong>
+
+</div>
+
+</div>
+
+
+<div class="total">
+
+<span>
+Total estimado a recibir
+</span>
+
+<span id="rTotalFinal">
+0,00 €
+</span>
+
+</div>
+
+
 <div
 class="explanation"
 id="explicacion"
@@ -789,9 +937,12 @@ id="explicacion"
 
 <div class="warning">
 
-⚠️ Este resultado es orientativo. El importe real puede variar
+⚠️ Resultado orientativo. El cálculo real puede variar
 según el convenio colectivo, contrato, sistema de devengo,
-conceptos salariales y circunstancias concretas.
+causa de extinción, antigüedad y circunstancias concretas.
+
+La indemnización por fin de contrato temporal no se aplica
+a todos los contratos temporales y puede tener excepciones.
 
 </div>
 
@@ -845,13 +996,23 @@ establecido en el convenio o contrato.
 
 
 <h3>
-Finiquito e indemnización
+Indemnización
 </h3>
 
 <p>
-El finiquito y la indemnización son conceptos diferentes.
-Una indemnización puede corresponder dependiendo de la causa
-de finalización del contrato.
+La indemnización depende de la causa de finalización de la relación
+laboral y de las circunstancias concretas del contrato.
+</p>
+
+
+<h3>
+Finiquito e indemnización no son lo mismo
+</h3>
+
+<p>
+El finiquito liquida las cantidades pendientes entre empresa y
+trabajador. La indemnización es una cantidad adicional que puede
+corresponder en determinados supuestos.
 </p>
 
 </div>
@@ -900,7 +1061,7 @@ function euros(valor) {
 
 
 /* =========================
-   MOSTRAR / OCULTAR PAGAS
+   PAGAS PRORRATEADAS
 ========================= */
 
 
@@ -916,13 +1077,17 @@ function actualizarPagas() {
             "seccionPagas"
         );
 
-    if (prorrateadas === "si") {
+    if (
+        prorrateadas === "si"
+    ) {
 
-        seccion.style.opacity = "0.5";
+        seccion.style.opacity =
+            "0.5";
 
     } else {
 
-        seccion.style.opacity = "1";
+        seccion.style.opacity =
+            "1";
 
     }
 
@@ -969,6 +1134,70 @@ function mostrarSalario() {
 
 
 /* =========================
+   MOTIVO
+========================= */
+
+
+function actualizarIndemnizacion() {
+
+    const motivo =
+        document.getElementById(
+            "motivo"
+        ).value;
+
+    const ayuda =
+        document.getElementById(
+            "ayudaMotivo"
+        );
+
+
+    if (
+        motivo === "fin_contrato"
+    ) {
+
+        ayuda.textContent =
+            "En determinados contratos temporales puede corresponder una indemnización de 12 días de salario por año de servicio.";
+
+    }
+
+    else if (
+        motivo === "objetivo"
+    ) {
+
+        ayuda.textContent =
+            "La indemnización legal general es de 20 días de salario por año de servicio, con los límites legales.";
+
+    }
+
+    else if (
+        motivo === "improcedente"
+    ) {
+
+        ayuda.textContent =
+            "Si el despido es declarado improcedente, la referencia general es de 33 días de salario por año de servicio, con los límites legales.";
+
+    }
+
+    else if (
+        motivo === "voluntaria"
+    ) {
+
+        ayuda.textContent =
+            "En una baja voluntaria no se añade automáticamente una indemnización.";
+
+    }
+
+    else {
+
+        ayuda.textContent =
+            "Introduce el motivo concreto o consulta las condiciones aplicables a tu caso.";
+
+    }
+
+}
+
+
+/* =========================
    PAGA EXTRA
 ========================= */
 
@@ -1007,14 +1236,18 @@ function calcularParteExtra(
         );
 
 
-    if (fin < inicio) {
+    if (
+        fin < inicio
+    ) {
 
         return 0;
 
     }
 
 
-    if (contrato < inicio) {
+    if (
+        contrato < inicio
+    ) {
 
         return 0;
 
@@ -1061,7 +1294,253 @@ function calcularParteExtra(
 
 
 /* =========================
-   CALCULAR
+   INDEMNIZACIÓN
+========================= */
+
+
+function calcularIndemnizacion(
+    motivo,
+    inicio,
+    fin,
+    salario
+) {
+
+    if (
+        !inicio ||
+        !fin ||
+        !salario
+    ) {
+
+        return {
+            dias: 0,
+            importe: 0
+        };
+
+    }
+
+
+    const fechaInicio =
+        new Date(
+            inicio
+        );
+
+    const fechaFin =
+        new Date(
+            fin
+        );
+
+
+    if (
+        fechaFin <
+        fechaInicio
+    ) {
+
+        return {
+            dias: 0,
+            importe: 0
+        };
+
+    }
+
+
+    let diasPorAno = 0;
+
+    let limiteMensualidades =
+        Infinity;
+
+
+    if (
+        motivo ===
+        "fin_contrato"
+    ) {
+
+        diasPorAno = 12;
+
+    }
+
+
+    else if (
+        motivo ===
+        "objetivo"
+    ) {
+
+        diasPorAno = 20;
+
+        limiteMensualidades = 12;
+
+    }
+
+
+    else if (
+        motivo ===
+        "improcedente"
+    ) {
+
+        diasPorAno = 33;
+
+        limiteMensualidades = 24;
+
+    }
+
+
+    else {
+
+        return {
+            dias: 0,
+            importe: 0
+        };
+
+    }
+
+
+    /*
+       Calculamos la antigüedad por meses.
+
+       Para una parte de año:
+       cada mes se considera proporcionalmente
+       para la indemnización.
+
+       Esto es una estimación orientativa.
+    */
+
+
+    let meses = 0;
+
+
+    const añosCompletos =
+        fechaFin.getFullYear() -
+        fechaInicio.getFullYear();
+
+
+    const diferenciaMeses =
+        fechaFin.getMonth() -
+        fechaInicio.getMonth();
+
+
+    meses =
+        añosCompletos * 12 +
+        diferenciaMeses;
+
+
+    /*
+       Si existe cualquier fracción de mes,
+       contamos el mes como completo para
+       esta estimación.
+    */
+
+
+    if (
+        fechaFin.getDate() >=
+        fechaInicio.getDate()
+    ) {
+
+        meses += 0;
+
+    } else {
+
+        meses -= 0;
+
+    }
+
+
+    if (
+        meses < 0
+    ) {
+
+        meses = 0;
+
+    }
+
+
+    /*
+       Para evitar infravalorar periodos pequeños,
+       calculamos también los días reales y
+       usamos meses proporcionales.
+
+       12 meses = 1 año.
+    */
+
+
+    const diasAntiguedad =
+        Math.max(
+            1,
+            Math.floor(
+                (
+                    fechaFin -
+                    fechaInicio
+                ) /
+                (
+                    1000 *
+                    60 *
+                    60 *
+                    24
+                )
+            ) + 1
+        );
+
+
+    const añosEquivalentes =
+        diasAntiguedad /
+        365;
+
+
+    let diasIndemnizacion =
+        añosEquivalentes *
+        diasPorAno;
+
+
+    const salarioDia =
+        salario / 30;
+
+
+    let importe =
+        diasIndemnizacion *
+        salarioDia;
+
+
+    /*
+       Límite máximo
+    */
+
+
+    if (
+        limiteMensualidades !==
+        Infinity
+    ) {
+
+        const limite =
+            salario *
+            limiteMensualidades;
+
+
+        if (
+            importe >
+            limite
+        ) {
+
+            importe =
+                limite;
+
+        }
+
+    }
+
+
+    return {
+
+        dias:
+            diasIndemnizacion,
+
+        importe:
+            importe
+
+    };
+
+}
+
+
+/* =========================
+   CALCULAR TODO
 ========================= */
 
 
@@ -1132,7 +1611,27 @@ function calcular() {
         ) || 0;
 
 
-    /* VALIDACIONES */
+    const motivo =
+        document.getElementById(
+            "motivo"
+        ).value;
+
+
+    const inicioIndemnizacion =
+        document.getElementById(
+            "inicioIndemnizacion"
+        ).value ||
+        inicio;
+
+
+    const finIndemnizacion =
+        document.getElementById(
+            "finIndemnizacion"
+        ).value ||
+        fin;
+
+
+    /* VALIDACIÓN */
 
 
     if (
@@ -1151,11 +1650,15 @@ function calcular() {
 
 
     const fechaInicio =
-        new Date(inicio);
+        new Date(
+            inicio
+        );
 
 
     const fechaFin =
-        new Date(fin);
+        new Date(
+            fin
+        );
 
 
     if (
@@ -1228,7 +1731,8 @@ function calcular() {
 
 
     if (
-        vacacionesPendientes < 0
+        vacacionesPendientes <
+        0
     ) {
 
         vacacionesPendientes = 0;
@@ -1250,12 +1754,12 @@ function calcular() {
     ========================= */
 
 
-    let salarioPendiente =
-        0;
+    let salarioPendiente = 0;
 
 
     if (
-        estadoSalario === "si"
+        estadoSalario ===
+        "si"
     ) {
 
         salarioPendiente = 0;
@@ -1266,19 +1770,11 @@ function calcular() {
     else {
 
 
-        const ultimoMesInicio =
-            new Date(
-                fechaFin.getFullYear(),
-                fechaFin.getMonth(),
-                1
-            );
-
-
         const diaFinal =
             fechaFin.getDate();
 
 
-        let salarioGenerado =
+        const salarioGenerado =
             diaFinal *
             salarioDia;
 
@@ -1313,11 +1809,13 @@ function calcular() {
 
 
     let extra1 = 0;
+
     let extra2 = 0;
 
 
     if (
-        prorrateadas === "no"
+        prorrateadas ===
+        "no"
     ) {
 
 
@@ -1368,7 +1866,7 @@ function calcular() {
 
 
     /* =========================
-       TOTAL
+       FINIQUITO
     ========================= */
 
 
@@ -1381,7 +1879,31 @@ function calcular() {
 
 
     /* =========================
-       RESULTADO
+       INDEMNIZACIÓN
+    ========================= */
+
+
+    const indemnizacion =
+        calcularIndemnizacion(
+
+            motivo,
+
+            inicioIndemnizacion,
+
+            finIndemnizacion,
+
+            salario
+
+        );
+
+
+    const totalFinal =
+        total +
+        indemnizacion.importe;
+
+
+    /* =========================
+       MOSTRAR RESULTADOS
     ========================= */
 
 
@@ -1433,6 +1955,29 @@ function calcular() {
         );
 
 
+    document.getElementById(
+        "rDiasIndemnizacion"
+    ).textContent =
+        indemnizacion.dias.toFixed(2) +
+        " días";
+
+
+    document.getElementById(
+        "rIndemnizacion"
+    ).textContent =
+        euros(
+            indemnizacion.importe
+        );
+
+
+    document.getElementById(
+        "rTotalFinal"
+    ).textContent =
+        euros(
+            totalFinal
+        );
+
+
     /* =========================
        EXPLICACIÓN
     ========================= */
@@ -1442,7 +1987,8 @@ function calcular() {
 
 
     if (
-        estadoSalario === "si"
+        estadoSalario ===
+        "si"
     ) {
 
         textoSalario =
@@ -1451,18 +1997,60 @@ function calcular() {
     }
 
     else if (
-        estadoSalario === "no"
+        estadoSalario ===
+        "no"
     ) {
 
         textoSalario =
-            "Se ha estimado el salario pendiente utilizando los días del último mes hasta la fecha de finalización.";
+            "El salario pendiente se ha estimado según los días del último mes hasta la fecha de finalización.";
 
     }
 
     else {
 
         textoSalario =
-            "Se ha restado del salario estimado del último periodo la cantidad que indicaste como ya cobrada.";
+            "Se ha restado del salario estimado la cantidad que indicaste como ya cobrada.";
+
+    }
+
+
+    let textoIndemnizacion = "";
+
+
+    if (
+        motivo ===
+        "fin_contrato"
+    ) {
+
+        textoIndemnizacion =
+            "Se ha utilizado como referencia una indemnización de 12 días de salario por año para determinados contratos temporales.";
+
+    }
+
+    else if (
+        motivo ===
+        "objetivo"
+    ) {
+
+        textoIndemnizacion =
+            "Se ha utilizado como referencia una indemnización de 20 días de salario por año.";
+
+    }
+
+    else if (
+        motivo ===
+        "improcedente"
+    ) {
+
+        textoIndemnizacion =
+            "Se ha utilizado como referencia una indemnización de 33 días de salario por año.";
+
+    }
+
+    else {
+
+        textoIndemnizacion =
+            "No se ha añadido una indemnización para el motivo seleccionado.";
 
     }
 
@@ -1499,7 +2087,13 @@ function calcular() {
 
         "Las pagas extraordinarias se han calculado " +
 
-        "según las fechas de devengo introducidas.";
+        "según las fechas de devengo introducidas." +
+
+        "<br><br>" +
+
+        "<strong>Indemnización:</strong> " +
+
+        textoIndemnizacion;
 
 
     document.getElementById(
@@ -1517,10 +2111,16 @@ function calcular() {
 }
 
 
-/* Inicialización */
+/* =========================
+   INICIALIZACIÓN
+========================= */
+
 
 actualizarPagas();
+
 mostrarSalario();
+
+actualizarIndemnizacion();
 
 </script>
 
