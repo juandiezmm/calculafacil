@@ -2,43 +2,47 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Calculadora de Finiquito 2026 | CalculaFácil</title>
+<title>Calculadora de Finiquito e Indemnización 2026</title>
 
-<meta name="description" content="Calcula de forma orientativa tu finiquito e indemnización en España. Incluye salario pendiente, vacaciones no disfrutadas y pagas extraordinarias.">
+<meta name="description"
+content="Calcula de forma orientativa tu finiquito e indemnización en España. Calcula salario pendiente, vacaciones no disfrutadas, pagas extra e indemnización.">
+
+<meta name="keywords"
+content="calculadora finiquito, calcular finiquito, indemnización despido, finiquito España, vacaciones no disfrutadas">
 
 <style>
 
 * {
     box-sizing: border-box;
-    margin: 0;
-    padding: 0;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: #f5f7fa;
-    color: #1f2937;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f7fb;
+    color: #172033;
     line-height: 1.5;
 }
 
 header {
     background: white;
     border-bottom: 1px solid #e5e7eb;
-    padding: 18px 20px;
 }
 
 .header {
-    max-width: 1000px;
+    max-width: 1050px;
     margin: auto;
+    padding: 18px 20px;
 }
 
 .logo {
     text-decoration: none;
-    font-size: 24px;
-    font-weight: bold;
     color: #111827;
+    font-size: 25px;
+    font-weight: 800;
 }
 
 .logo span {
@@ -46,29 +50,33 @@ header {
 }
 
 main {
-    max-width: 1000px;
+    max-width: 1050px;
     margin: 40px auto 70px;
     padding: 0 20px;
 }
 
-h1 {
-    font-size: 38px;
-    margin-bottom: 10px;
-}
-
-.intro {
-    color: #6b7280;
+.hero {
     margin-bottom: 30px;
-    max-width: 750px;
 }
 
-.calculator,
-.info {
+h1 {
+    font-size: 40px;
+    line-height: 1.15;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    max-width: 750px;
+    color: #667085;
+    font-size: 17px;
+}
+
+.calculator {
     background: white;
-    border: 1px solid #e5e7eb;
-    border-radius: 14px;
+    border-radius: 16px;
     padding: 30px;
-    box-shadow: 0 5px 20px rgba(0,0,0,.04);
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 8px 30px rgba(0,0,0,.05);
 }
 
 .section {
@@ -76,8 +84,8 @@ h1 {
 }
 
 .section h2 {
-    font-size: 20px;
-    margin-bottom: 18px;
+    font-size: 21px;
+    margin: 0 0 18px;
 }
 
 .grid {
@@ -86,9 +94,13 @@ h1 {
     gap: 18px;
 }
 
+.field {
+    margin-bottom: 4px;
+}
+
 label {
     display: block;
-    font-weight: bold;
+    font-weight: 700;
     font-size: 14px;
     margin-bottom: 7px;
 }
@@ -96,11 +108,12 @@ label {
 input,
 select {
     width: 100%;
-    padding: 12px;
+    padding: 12px 13px;
     border: 1px solid #d1d5db;
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: 9px;
     background: white;
+    font-size: 16px;
+    color: #172033;
 }
 
 input:focus,
@@ -117,25 +130,25 @@ select:focus {
 
 .extra-box {
     border: 1px solid #e5e7eb;
-    border-radius: 10px;
+    border-radius: 11px;
     padding: 20px;
-    margin-top: 18px;
     background: #fafafa;
+    margin-top: 16px;
 }
 
 .extra-box h3 {
-    margin-bottom: 15px;
+    margin: 0 0 15px;
 }
 
 button {
     width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 9px;
+    padding: 16px;
+    border: 0;
+    border-radius: 10px;
     background: #2563eb;
     color: white;
     font-size: 17px;
-    font-weight: bold;
+    font-weight: 700;
     cursor: pointer;
 }
 
@@ -148,72 +161,122 @@ button:hover {
     margin-top: 30px;
     background: #eff6ff;
     border: 1px solid #bfdbfe;
-    border-radius: 12px;
+    border-radius: 13px;
     padding: 25px;
 }
 
 .result h2 {
-    margin-bottom: 18px;
+    margin-top: 0;
+}
+
+.result-section {
+    margin-top: 25px;
 }
 
 .row {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    padding: 10px 0;
+    padding: 11px 0;
     border-bottom: 1px solid #dbeafe;
+}
+
+.row strong {
+    text-align: right;
 }
 
 .total {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    margin-top: 18px;
-    font-size: 23px;
-    font-weight: bold;
+    padding-top: 18px;
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: 800;
 }
 
-.subtotal {
-    margin-top: 22px;
-    padding-top: 18px;
-    border-top: 2px solid #bfdbfe;
+.grand-total {
+    margin-top: 25px;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    border: 1px solid #bfdbfe;
+}
+
+.grand-total .total {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 26px;
 }
 
 .explanation {
-    margin-top: 22px;
-    padding: 16px;
     background: white;
-    border-radius: 8px;
+    padding: 18px;
+    border-radius: 9px;
+    margin-top: 22px;
     font-size: 14px;
 }
 
 .warning {
-    margin-top: 20px;
+    margin-top: 18px;
     padding: 15px;
     background: #fff7ed;
     border: 1px solid #fed7aa;
-    border-radius: 8px;
-    font-size: 13px;
     color: #9a3412;
+    border-radius: 9px;
+    font-size: 13px;
 }
 
 .info {
+    background: white;
     margin-top: 30px;
-    box-shadow: none;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
 }
 
 .info h2 {
-    margin-bottom: 15px;
+    margin-top: 0;
 }
 
 .info h3 {
-    margin-top: 20px;
-    margin-bottom: 8px;
+    margin-top: 25px;
 }
 
 .info p {
     color: #4b5563;
-    margin-bottom: 12px;
+}
+
+.faq {
+    background: white;
+    margin-top: 30px;
+    padding: 30px;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+}
+
+.faq h2 {
+    margin-top: 0;
+}
+
+.faq-item {
+    border-bottom: 1px solid #e5e7eb;
+    padding: 18px 0;
+}
+
+.faq-item:last-child {
+    border-bottom: 0;
+}
+
+.faq-item h3 {
+    font-size: 17px;
+    margin: 0 0 7px;
+}
+
+.faq-item p {
+    color: #4b5563;
+    margin: 0;
 }
 
 footer {
@@ -223,14 +286,23 @@ footer {
     padding: 30px 20px;
 }
 
-@media (max-width: 650px) {
+footer p {
+    margin: 5px;
+}
+
+@media(max-width:700px) {
+
+    main {
+        margin-top: 25px;
+    }
 
     h1 {
-        font-size: 30px;
+        font-size: 31px;
     }
 
     .calculator,
-    .info {
+    .info,
+    .faq {
         padding: 20px;
     }
 
@@ -239,9 +311,14 @@ footer {
     }
 
     .row,
-    .total {
+    .total,
+    .grand-total .total {
         flex-direction: column;
-        gap: 4px;
+        gap: 5px;
+    }
+
+    .row strong {
+        text-align: left;
     }
 
 }
@@ -266,18 +343,24 @@ Calcula<span>Fácil</span>
 
 <main>
 
-<h1>Calculadora de Finiquito e Indemnización</h1>
+<div class="hero">
 
-<p class="intro">
+<h1>
+Calculadora de Finiquito e Indemnización
+</h1>
+
+<p>
 Calcula de forma orientativa cuánto podrías recibir al finalizar
 tu relación laboral en España.
 </p>
+
+</div>
 
 
 <div class="calculator">
 
 
-<!-- CONTRATO -->
+<!-- DATOS DEL CONTRATO -->
 
 <div class="section">
 
@@ -285,7 +368,7 @@ tu relación laboral en España.
 
 <div class="grid">
 
-<div>
+<div class="field">
 
 <label for="inicio">
 Fecha de inicio
@@ -299,7 +382,7 @@ id="inicio"
 </div>
 
 
-<div>
+<div class="field">
 
 <label for="fin">
 Fecha de finalización
@@ -325,7 +408,7 @@ id="fin"
 
 <div class="grid">
 
-<div>
+<div class="field">
 
 <label for="salario">
 Salario bruto mensual (€)
@@ -340,13 +423,13 @@ placeholder="Ej. 1800"
 >
 
 <div class="help">
-Introduce tu salario bruto mensual.
+Introduce el salario bruto mensual.
 </div>
 
 </div>
 
 
-<div>
+<div class="field">
 
 <label for="pagas">
 Número de pagas
@@ -358,7 +441,7 @@ Número de pagas
 12 pagas
 </option>
 
-<option value="14">
+<option value="14" selected>
 14 pagas
 </option>
 
@@ -372,13 +455,10 @@ Número de pagas
 <div style="margin-top:18px">
 
 <label for="prorrateadas">
-¿Las pagas extra están prorrateadas?
+¿Las pagas extraordinarias están prorrateadas?
 </label>
 
-<select
-id="prorrateadas"
-onchange="actualizarPagas()"
->
+<select id="prorrateadas">
 
 <option value="no">
 No
@@ -391,8 +471,8 @@ Sí
 </select>
 
 <div class="help">
-Si las pagas extraordinarias ya están incluidas
-en las nóminas mensuales, selecciona Sí.
+Si las pagas extra ya están incluidas mensualmente,
+selecciona Sí.
 </div>
 
 </div>
@@ -408,7 +488,7 @@ en las nóminas mensuales, selecciona Sí.
 
 <div class="grid">
 
-<div>
+<div class="field">
 
 <label for="vacaciones">
 Días de vacaciones al año
@@ -425,7 +505,7 @@ step="0.01"
 </div>
 
 
-<div>
+<div class="field">
 
 <label for="disfrutadas">
 Días disfrutados este año
@@ -455,12 +535,12 @@ id="seccionPagas"
 
 <h2>🎁 Pagas extraordinarias</h2>
 
-<p class="help">
+<div class="help">
 
-Introduce las fechas reales de devengo de tus pagas
-según tu convenio, contrato o documentación laboral.
+Introduce las fechas de devengo que correspondan
+a tu contrato o convenio.
 
-</p>
+</div>
 
 
 <div class="extra-box">
@@ -471,7 +551,7 @@ Paga extraordinaria 1
 
 <div class="grid">
 
-<div>
+<div class="field">
 
 <label for="extra1importe">
 Importe (€)
@@ -480,15 +560,15 @@ Importe (€)
 <input
 type="number"
 id="extra1importe"
-placeholder="Ej. 1800"
 min="0"
 step="0.01"
+placeholder="Ej. 1800"
 >
 
 </div>
 
 
-<div>
+<div class="field">
 
 <label for="extra1inicio">
 Inicio del devengo
@@ -502,7 +582,7 @@ id="extra1inicio"
 </div>
 
 
-<div>
+<div class="field">
 
 <label for="extra1fin">
 Fin del devengo
@@ -528,7 +608,7 @@ Paga extraordinaria 2
 
 <div class="grid">
 
-<div>
+<div class="field">
 
 <label for="extra2importe">
 Importe (€)
@@ -537,15 +617,15 @@ Importe (€)
 <input
 type="number"
 id="extra2importe"
-placeholder="Ej. 1800"
 min="0"
 step="0.01"
+placeholder="Ej. 1800"
 >
 
 </div>
 
 
-<div>
+<div class="field">
 
 <label for="extra2inicio">
 Inicio del devengo
@@ -559,7 +639,7 @@ id="extra2inicio"
 </div>
 
 
-<div>
+<div class="field">
 
 <label for="extra2fin">
 Fin del devengo
@@ -579,20 +659,17 @@ id="extra2fin"
 </div>
 
 
-<!-- ULTIMO SALARIO -->
+<!-- SALARIO PENDIENTE -->
 
 <div class="section">
 
 <h2>💵 Último salario</h2>
 
 <label for="estadoSalario">
-¿Has cobrado ya el salario correspondiente al último periodo?
+¿Has cobrado el salario correspondiente al último periodo?
 </label>
 
-<select
-id="estadoSalario"
-onchange="mostrarSalario()"
->
+<select id="estadoSalario">
 
 <option value="si">
 Sí, completamente
@@ -610,8 +687,8 @@ Parcialmente
 
 
 <div
-id="salarioParcialBox"
-style="display:none; margin-top:18px;"
+id="salarioCobradoBox"
+style="display:none;margin-top:18px;"
 >
 
 <label for="salarioCobrado">
@@ -624,47 +701,24 @@ id="salarioCobrado"
 value="0"
 min="0"
 step="0.01"
-placeholder="Ej. 900"
 >
 
-<div class="help">
-Se restará esta cantidad del salario estimado.
 </div>
 
 </div>
 
 
-<div
-id="salarioAutomatico"
-style="display:none; margin-top:18px;"
->
-
-<div class="help">
-
-El salario pendiente se calculará de forma orientativa
-según los días del último mes trabajados.
-
-</div>
-
-</div>
-
-</div>
-
-
-<!-- MOTIVO -->
+<!-- MOTIVO FINALIZACION -->
 
 <div class="section">
 
 <h2>⚖️ Motivo de finalización</h2>
 
 <label for="motivo">
-¿Por qué termina tu relación laboral?
+¿Por qué termina la relación laboral?
 </label>
 
-<select
-id="motivo"
-onchange="actualizarIndemnizacion()"
->
+<select id="motivo">
 
 <option value="fin_contrato">
 Fin de contrato temporal
@@ -691,11 +745,10 @@ Otro / No lo sé
 <div
 class="help"
 id="ayudaMotivo"
+style="margin-top:8px;"
 >
-
 En determinados contratos temporales puede corresponder
 una indemnización de 12 días de salario por año de servicio.
-
 </div>
 
 </div>
@@ -705,14 +758,14 @@ una indemnización de 12 días de salario por año de servicio.
 
 <div class="section">
 
-<h2>📆 Antigüedad para la indemnización</h2>
+<h2>📆 Antigüedad para indemnización</h2>
 
 <div class="grid">
 
-<div>
+<div class="field">
 
 <label for="inicioIndemnizacion">
-Inicio
+Inicio de la relación laboral
 </label>
 
 <input
@@ -723,7 +776,7 @@ id="inicioIndemnizacion"
 </div>
 
 
-<div>
+<div class="field">
 
 <label for="finIndemnizacion">
 Finalización
@@ -739,7 +792,7 @@ id="finIndemnizacion"
 </div>
 
 <div class="help">
-Si no introduces estas fechas, se utilizarán las fechas del contrato.
+Si lo dejas vacío, se utilizarán las fechas del contrato.
 </div>
 
 </div>
@@ -750,10 +803,6 @@ Si no introduces estas fechas, se utilizarán las fechas del contrato.
 <div class="section">
 
 <h2>💰 Otros conceptos</h2>
-
-<div class="grid">
-
-<div>
 
 <label for="otros">
 Otros conceptos pendientes (€)
@@ -766,14 +815,6 @@ value="0"
 min="0"
 step="0.01"
 >
-
-<div class="help">
-Opcional.
-</div>
-
-</div>
-
-</div>
 
 </div>
 
@@ -795,7 +836,9 @@ Resultado estimado
 </h2>
 
 
-<h3 style="margin-top:20px;margin-bottom:10px;">
+<div class="result-section">
+
+<h3>
 Finiquito
 </h3>
 
@@ -877,12 +920,14 @@ Finiquito estimado
 
 </div>
 
+</div>
+
 
 <!-- INDEMNIZACION -->
 
-<div class="subtotal">
+<div class="result-section">
 
-<h3 style="margin-bottom:15px;">
+<h3>
 Indemnización
 </h3>
 
@@ -915,6 +960,10 @@ Indemnización estimada
 </div>
 
 
+<!-- TOTAL -->
+
+<div class="grand-total">
+
 <div class="total">
 
 <span>
@@ -924,6 +973,8 @@ Total estimado a recibir
 <span id="rTotalFinal">
 0,00 €
 </span>
+
+</div>
 
 </div>
 
@@ -937,13 +988,11 @@ id="explicacion"
 
 <div class="warning">
 
-⚠️ Resultado orientativo. El cálculo real puede variar
+⚠️ <strong>Importante:</strong>
+este resultado es orientativo. El cálculo real puede variar
 según el convenio colectivo, contrato, sistema de devengo,
 causa de extinción, antigüedad y circunstancias concretas.
 
-La indemnización por fin de contrato temporal no se aplica
-a todos los contratos temporales y puede tener excepciones.
-
 </div>
 
 </div>
@@ -951,69 +1000,162 @@ a todos los contratos temporales y puede tener excepciones.
 </div>
 
 
-<!-- INFORMACIÓN -->
+<!-- INFORMACION -->
 
 <div class="info">
 
 <h2>
-¿Cómo se calcula un finiquito?
+¿Qué incluye el finiquito?
 </h2>
 
 <p>
 El finiquito es la liquidación de las cantidades pendientes
-entre la empresa y el trabajador cuando termina la relación laboral.
+entre la empresa y la persona trabajadora cuando termina
+la relación laboral.
 </p>
 
 
 <h3>
-Salario pendiente
+💵 Salario pendiente
 </h3>
 
 <p>
-Puede incluir las cantidades correspondientes al trabajo realizado
-que todavía no hayan sido abonadas.
+Puede incluir los salarios correspondientes al periodo trabajado
+que todavía no hayan sido abonados.
 </p>
 
 
 <h3>
-Vacaciones no disfrutadas
+🏖️ Vacaciones no disfrutadas
 </h3>
 
 <p>
-Las vacaciones generadas y no disfrutadas pueden formar parte
-de la liquidación final.
+Las vacaciones generadas y no disfrutadas pueden incluirse
+en la liquidación final.
 </p>
 
 
 <h3>
-Pagas extraordinarias
+🎁 Pagas extraordinarias
 </h3>
 
 <p>
-La parte proporcional pendiente depende del sistema de devengo
-establecido en el convenio o contrato.
+Si las pagas extraordinarias no están prorrateadas, puede
+corresponder la parte proporcional pendiente según el sistema
+de devengo aplicable.
 </p>
 
 
 <h3>
-Indemnización
+⚖️ Indemnización
 </h3>
 
 <p>
-La indemnización depende de la causa de finalización de la relación
-laboral y de las circunstancias concretas del contrato.
+La indemnización no es lo mismo que el finiquito.
+Puede corresponder dependiendo de la causa de finalización
+de la relación laboral.
 </p>
 
+</div>
+
+
+<!-- FAQ -->
+
+<div class="faq">
+
+<h2>
+Preguntas frecuentes
+</h2>
+
+
+<div class="faq-item">
 
 <h3>
-Finiquito e indemnización no son lo mismo
+¿Qué diferencia hay entre finiquito e indemnización?
 </h3>
 
 <p>
-El finiquito liquida las cantidades pendientes entre empresa y
-trabajador. La indemnización es una cantidad adicional que puede
-corresponder en determinados supuestos.
+El finiquito liquida las cantidades pendientes entre empresa
+y trabajador. La indemnización es una cantidad adicional que
+puede corresponder en determinados supuestos.
 </p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+¿Me corresponden las vacaciones que no he disfrutado?
+</h3>
+
+<p>
+Las vacaciones generadas y no disfrutadas se tienen en cuenta
+en la liquidación final. Además, durante ese periodo posterior
+a la finalización del trabajo continúa la cotización a la
+Seguridad Social.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+¿Cuántos días de indemnización corresponden por fin de contrato?
+</h3>
+
+<p>
+En determinados contratos temporales la indemnización es de
+12 días de salario por año de servicio, con las excepciones
+previstas legalmente.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+¿Cuánto corresponde por despido objetivo?
+</h3>
+
+<p>
+La referencia legal general es de 20 días de salario por año
+de servicio, con el límite establecido legalmente.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+¿Cuánto corresponde por despido improcedente?
+</h3>
+
+<p>
+La referencia general es de 33 días de salario por año de
+servicio, con los límites legales y teniendo en cuenta las
+circunstancias del contrato.
+</p>
+
+</div>
+
+
+<div class="faq-item">
+
+<h3>
+¿Esta calculadora sustituye a un profesional?
+</h3>
+
+<p>
+No. La herramienta proporciona una estimación y no sustituye
+la revisión de un asesor laboral, sindicato, abogado o de la
+documentación laboral correspondiente.
+</p>
+
+</div>
 
 </div>
 
@@ -1022,7 +1164,13 @@ corresponder en determinados supuestos.
 
 <footer>
 
-© 2026 CalculaFácil · Calculadora orientativa
+<p>
+© 2026 CalculaFácil
+</p>
+
+<p>
+Calculadora orientativa de finiquito e indemnización
+</p>
 
 </footer>
 
@@ -1030,9 +1178,38 @@ corresponder en determinados supuestos.
 <script>
 
 
-/* =========================
+/* =====================================================
    UTILIDADES
-========================= */
+===================================================== */
+
+
+function euros(valor) {
+
+    return Number(valor || 0).toLocaleString(
+        "es-ES",
+        {
+            style: "currency",
+            currency: "EUR"
+        }
+    );
+
+}
+
+
+function fechaLocal(valor) {
+
+    if (!valor) return null;
+
+    const partes =
+        valor.split("-");
+
+    return new Date(
+        Number(partes[0]),
+        Number(partes[1]) - 1,
+        Number(partes[2])
+    );
+
+}
 
 
 function diasEntre(inicio, fin) {
@@ -1047,172 +1224,124 @@ function diasEntre(inicio, fin) {
 }
 
 
-function euros(valor) {
+/* =====================================================
+   SALARIO PARCIAL
+===================================================== */
 
-    return valor.toLocaleString(
-        "es-ES",
-        {
-            style: "currency",
-            currency: "EUR"
+
+document
+.getElementById("estadoSalario")
+.addEventListener(
+    "change",
+    function() {
+
+        const box =
+            document.getElementById(
+                "salarioCobradoBox"
+            );
+
+        if (
+            this.value === "parcial"
+        ) {
+
+            box.style.display =
+                "block";
+
+        } else {
+
+            box.style.display =
+                "none";
+
         }
-    );
-
-}
-
-
-/* =========================
-   PAGAS PRORRATEADAS
-========================= */
-
-
-function actualizarPagas() {
-
-    const prorrateadas =
-        document.getElementById(
-            "prorrateadas"
-        ).value;
-
-    const seccion =
-        document.getElementById(
-            "seccionPagas"
-        );
-
-    if (
-        prorrateadas === "si"
-    ) {
-
-        seccion.style.opacity =
-            "0.5";
-
-    } else {
-
-        seccion.style.opacity =
-            "1";
 
     }
-
-}
-
-
-/* =========================
-   SALARIO
-========================= */
+);
 
 
-function mostrarSalario() {
-
-    const estado =
-        document.getElementById(
-            "estadoSalario"
-        ).value;
-
-
-    const parcial =
-        document.getElementById(
-            "salarioParcialBox"
-        );
-
-
-    const automatico =
-        document.getElementById(
-            "salarioAutomatico"
-        );
-
-
-    parcial.style.display =
-        estado === "parcial"
-            ? "block"
-            : "none";
-
-
-    automatico.style.display =
-        estado === "no"
-            ? "block"
-            : "none";
-
-}
-
-
-/* =========================
+/* =====================================================
    MOTIVO
-========================= */
+===================================================== */
 
 
-function actualizarIndemnizacion() {
+document
+.getElementById("motivo")
+.addEventListener(
+    "change",
+    function() {
 
-    const motivo =
-        document.getElementById(
-            "motivo"
-        ).value;
+        const ayuda =
+            document.getElementById(
+                "ayudaMotivo"
+            );
 
-    const ayuda =
-        document.getElementById(
-            "ayudaMotivo"
-        );
+        if (
+            this.value ===
+            "fin_contrato"
+        ) {
 
+            ayuda.textContent =
+                "En determinados contratos temporales puede corresponder una indemnización de 12 días de salario por año de servicio.";
 
-    if (
-        motivo === "fin_contrato"
-    ) {
+        }
 
-        ayuda.textContent =
-            "En determinados contratos temporales puede corresponder una indemnización de 12 días de salario por año de servicio.";
+        else if (
+            this.value ===
+            "objetivo"
+        ) {
+
+            ayuda.textContent =
+                "La referencia legal general es de 20 días de salario por año de servicio, con los límites legales.";
+
+        }
+
+        else if (
+            this.value ===
+            "improcedente"
+        ) {
+
+            ayuda.textContent =
+                "La referencia general es de 33 días de salario por año de servicio, con los límites legales.";
+
+        }
+
+        else if (
+            this.value ===
+            "voluntaria"
+        ) {
+
+            ayuda.textContent =
+                "En una baja voluntaria no se añade automáticamente una indemnización.";
+
+        }
+
+        else {
+
+            ayuda.textContent =
+                "La indemnización dependerá de las circunstancias concretas de la finalización.";
+
+        }
 
     }
-
-    else if (
-        motivo === "objetivo"
-    ) {
-
-        ayuda.textContent =
-            "La indemnización legal general es de 20 días de salario por año de servicio, con los límites legales.";
-
-    }
-
-    else if (
-        motivo === "improcedente"
-    ) {
-
-        ayuda.textContent =
-            "Si el despido es declarado improcedente, la referencia general es de 33 días de salario por año de servicio, con los límites legales.";
-
-    }
-
-    else if (
-        motivo === "voluntaria"
-    ) {
-
-        ayuda.textContent =
-            "En una baja voluntaria no se añade automáticamente una indemnización.";
-
-    }
-
-    else {
-
-        ayuda.textContent =
-            "Introduce el motivo concreto o consulta las condiciones aplicables a tu caso.";
-
-    }
-
-}
+);
 
 
-/* =========================
-   PAGA EXTRA
-========================= */
+/* =====================================================
+   PAGAS EXTRA
+===================================================== */
 
 
-function calcularParteExtra(
+function calcularExtra(
     importe,
-    inicioDevengo,
-    finDevengo,
-    fechaFinContrato
+    inicio,
+    fin,
+    fechaContratoFin
 ) {
 
     if (
         !importe ||
-        !inicioDevengo ||
-        !finDevengo
+        !inicio ||
+        !fin ||
+        !fechaContratoFin
     ) {
 
         return 0;
@@ -1220,24 +1349,19 @@ function calcularParteExtra(
     }
 
 
-    const inicio =
-        new Date(
-            inicioDevengo
-        );
+    const inicioDevengo =
+        fechaLocal(inicio);
 
-    const fin =
-        new Date(
-            finDevengo
-        );
+    const finDevengo =
+        fechaLocal(fin);
 
-    const contrato =
-        new Date(
-            fechaFinContrato
-        );
+    const fechaFinContrato =
+        fechaLocal(fechaContratoFin);
 
 
     if (
-        fin < inicio
+        finDevengo <
+        inicioDevengo
     ) {
 
         return 0;
@@ -1246,7 +1370,8 @@ function calcularParteExtra(
 
 
     if (
-        contrato < inicio
+        fechaFinContrato <
+        inicioDevengo
     ) {
 
         return 0;
@@ -1254,28 +1379,29 @@ function calcularParteExtra(
     }
 
 
-    const fechaCalculo =
-        contrato < fin
-            ? contrato
-            : fin;
+    const fechaFinal =
+        fechaFinContrato <
+        finDevengo
+            ? fechaFinContrato
+            : finDevengo;
 
 
-    const diasDevengo =
+    const totalDias =
         diasEntre(
-            inicio,
-            fin
+            inicioDevengo,
+            finDevengo
         );
 
 
     const diasGenerados =
         diasEntre(
-            inicio,
-            fechaCalculo
+            inicioDevengo,
+            fechaFinal
         );
 
 
     if (
-        diasDevengo <= 0 ||
+        totalDias <= 0 ||
         diasGenerados <= 0
     ) {
 
@@ -1284,31 +1410,80 @@ function calcularParteExtra(
     }
 
 
-    return importe *
-        (
-            diasGenerados /
-            diasDevengo
-        );
+    return (
+        Number(importe) *
+        diasGenerados /
+        totalDias
+    );
 
 }
 
 
-/* =========================
-   INDEMNIZACIÓN
-========================= */
+/* =====================================================
+   MESES DE ANTIGÜEDAD
+===================================================== */
+
+
+function mesesAntiguedad(
+    inicio,
+    fin
+) {
+
+    let meses = 0;
+
+    let fecha =
+        new Date(
+            inicio.getFullYear(),
+            inicio.getMonth(),
+            1
+        );
+
+    const ultimaFecha =
+        new Date(
+            fin.getFullYear(),
+            fin.getMonth(),
+            1
+        );
+
+
+    while (
+        fecha <= ultimaFecha
+    ) {
+
+        meses++;
+
+        fecha.setMonth(
+            fecha.getMonth() + 1
+        );
+
+    }
+
+
+    return Math.max(
+        0,
+        meses
+    );
+
+}
+
+
+/* =====================================================
+   INDEMNIZACION
+===================================================== */
 
 
 function calcularIndemnizacion(
     motivo,
     inicio,
     fin,
-    salario
+    salarioMensual,
+    numeroPagas
 ) {
 
     if (
         !inicio ||
         !fin ||
-        !salario
+        !salarioMensual
     ) {
 
         return {
@@ -1320,14 +1495,10 @@ function calcularIndemnizacion(
 
 
     const fechaInicio =
-        new Date(
-            inicio
-        );
+        fechaLocal(inicio);
 
     const fechaFin =
-        new Date(
-            fin
-        );
+        fechaLocal(fin);
 
 
     if (
@@ -1346,7 +1517,7 @@ function calcularIndemnizacion(
     let diasPorAno = 0;
 
     let limiteMensualidades =
-        Infinity;
+        null;
 
 
     if (
@@ -1355,6 +1526,8 @@ function calcularIndemnizacion(
     ) {
 
         diasPorAno = 12;
+
+        limiteMensualidades = 6;
 
     }
 
@@ -1394,103 +1567,49 @@ function calcularIndemnizacion(
 
 
     /*
-       Calculamos la antigüedad por meses.
+       Las fracciones de año se calculan por meses.
 
-       Para una parte de año:
-       cada mes se considera proporcionalmente
-       para la indemnización.
-
-       Esto es una estimación orientativa.
+       Ejemplo:
+       1 año y 3 meses =
+       15 meses / 12
     */
 
 
-    let meses = 0;
-
-
-    const añosCompletos =
-        fechaFin.getFullYear() -
-        fechaInicio.getFullYear();
-
-
-    const diferenciaMeses =
-        fechaFin.getMonth() -
-        fechaInicio.getMonth();
-
-
-    meses =
-        añosCompletos * 12 +
-        diferenciaMeses;
-
-
-    /*
-       Si existe cualquier fracción de mes,
-       contamos el mes como completo para
-       esta estimación.
-    */
-
-
-    if (
-        fechaFin.getDate() >=
-        fechaInicio.getDate()
-    ) {
-
-        meses += 0;
-
-    } else {
-
-        meses -= 0;
-
-    }
-
-
-    if (
-        meses < 0
-    ) {
-
-        meses = 0;
-
-    }
-
-
-    /*
-       Para evitar infravalorar periodos pequeños,
-       calculamos también los días reales y
-       usamos meses proporcionales.
-
-       12 meses = 1 año.
-    */
-
-
-    const diasAntiguedad =
-        Math.max(
-            1,
-            Math.floor(
-                (
-                    fechaFin -
-                    fechaInicio
-                ) /
-                (
-                    1000 *
-                    60 *
-                    60 *
-                    24
-                )
-            ) + 1
+    const meses =
+        mesesAntiguedad(
+            fechaInicio,
+            fechaFin
         );
 
 
-    const añosEquivalentes =
-        diasAntiguedad /
-        365;
+    const años =
+        meses / 12;
 
 
-    let diasIndemnizacion =
-        añosEquivalentes *
+    const diasIndemnizacion =
+        años *
         diasPorAno;
 
 
+    /*
+       Para la indemnización utilizamos
+       salario anual / 365.
+
+       Si hay 14 pagas:
+       salario mensual × 14 / 365.
+
+       Si hay 12:
+       salario mensual × 12 / 365.
+    */
+
+
+    const salarioAnual =
+        salarioMensual *
+        Number(numeroPagas);
+
+
     const salarioDia =
-        salario / 30;
+        salarioAnual / 365;
 
 
     let importe =
@@ -1504,12 +1623,11 @@ function calcularIndemnizacion(
 
 
     if (
-        limiteMensualidades !==
-        Infinity
+        limiteMensualidades
     ) {
 
         const limite =
-            salario *
+            salarioMensual *
             limiteMensualidades;
 
 
@@ -1539,9 +1657,9 @@ function calcularIndemnizacion(
 }
 
 
-/* =========================
-   CALCULAR TODO
-========================= */
+/* =====================================================
+   CALCULAR
+===================================================== */
 
 
 function calcular() {
@@ -1560,15 +1678,23 @@ function calcular() {
 
 
     const salario =
-        parseFloat(
+        Number(
             document.getElementById(
                 "salario"
             ).value
         );
 
 
+    const numeroPagas =
+        Number(
+            document.getElementById(
+                "pagas"
+            ).value
+        );
+
+
     const vacacionesAnuales =
-        parseFloat(
+        Number(
             document.getElementById(
                 "vacaciones"
             ).value
@@ -1576,7 +1702,7 @@ function calcular() {
 
 
     const vacacionesDisfrutadas =
-        parseFloat(
+        Number(
             document.getElementById(
                 "disfrutadas"
             ).value
@@ -1596,17 +1722,9 @@ function calcular() {
 
 
     const salarioCobrado =
-        parseFloat(
+        Number(
             document.getElementById(
                 "salarioCobrado"
-            ).value
-        ) || 0;
-
-
-    const otros =
-        parseFloat(
-            document.getElementById(
-                "otros"
             ).value
         ) || 0;
 
@@ -1615,6 +1733,14 @@ function calcular() {
         document.getElementById(
             "motivo"
         ).value;
+
+
+    const otros =
+        Number(
+            document.getElementById(
+                "otros"
+            ).value
+        ) || 0;
 
 
     const inicioIndemnizacion =
@@ -1631,7 +1757,7 @@ function calcular() {
         fin;
 
 
-    /* VALIDACIÓN */
+    /* VALIDACION */
 
 
     if (
@@ -1641,7 +1767,7 @@ function calcular() {
     ) {
 
         alert(
-            "Introduce las fechas y el salario bruto mensual."
+            "Introduce la fecha de inicio, la fecha de finalización y el salario."
         );
 
         return;
@@ -1650,15 +1776,11 @@ function calcular() {
 
 
     const fechaInicio =
-        new Date(
-            inicio
-        );
+        fechaLocal(inicio);
 
 
     const fechaFin =
-        new Date(
-            fin
-        );
+        fechaLocal(fin);
 
 
     if (
@@ -1675,44 +1797,48 @@ function calcular() {
     }
 
 
-    /* =========================
+    /* =================================================
        VACACIONES
-    ========================= */
+    ================================================= */
 
 
-    const inicioAno =
+    const año =
+        fechaFin.getFullYear();
+
+
+    const inicioAño =
         new Date(
-            fechaFin.getFullYear(),
+            año,
             0,
             1
         );
 
 
-    const finAno =
+    const finAño =
         new Date(
-            fechaFin.getFullYear(),
+            año,
             11,
             31
         );
 
 
-    const inicioVacaciones =
+    const fechaInicioCalculo =
         fechaInicio >
-        inicioAno
+        inicioAño
             ? fechaInicio
-            : inicioAno;
+            : inicioAño;
 
 
-    const diasAno =
+    const diasAño =
         diasEntre(
-            inicioAno,
-            finAno
+            inicioAño,
+            finAño
         );
 
 
-    const diasTrabajadosAno =
+    const diasTrabajados =
         diasEntre(
-            inicioVacaciones,
+            fechaInicioCalculo,
             fechaFin
         );
 
@@ -1720,8 +1846,8 @@ function calcular() {
     let vacacionesGeneradas =
         vacacionesAnuales *
         (
-            diasTrabajadosAno /
-            diasAno
+            diasTrabajados /
+            diasAño
         );
 
 
@@ -1731,8 +1857,7 @@ function calcular() {
 
 
     if (
-        vacacionesPendientes <
-        0
+        vacacionesPendientes < 0
     ) {
 
         vacacionesPendientes = 0;
@@ -1740,18 +1865,18 @@ function calcular() {
     }
 
 
-    const salarioDia =
+    const salarioDiaFiniquito =
         salario / 30;
 
 
     const importeVacaciones =
         vacacionesPendientes *
-        salarioDia;
+        salarioDiaFiniquito;
 
 
-    /* =========================
-       ÚLTIMO SALARIO
-    ========================= */
+    /* =================================================
+       SALARIO PENDIENTE
+    ================================================= */
 
 
     let salarioPendiente = 0;
@@ -1769,14 +1894,13 @@ function calcular() {
 
     else {
 
-
         const diaFinal =
             fechaFin.getDate();
 
 
         const salarioGenerado =
             diaFinal *
-            salarioDia;
+            salarioDiaFiniquito;
 
 
         if (
@@ -1803,9 +1927,9 @@ function calcular() {
     }
 
 
-    /* =========================
+    /* =================================================
        PAGAS EXTRA
-    ========================= */
+    ================================================= */
 
 
     let extra1 = 0;
@@ -1818,11 +1942,10 @@ function calcular() {
         "no"
     ) {
 
-
         extra1 =
-            calcularParteExtra(
+            calcularExtra(
 
-                parseFloat(
+                Number(
                     document.getElementById(
                         "extra1importe"
                     ).value
@@ -1842,9 +1965,9 @@ function calcular() {
 
 
         extra2 =
-            calcularParteExtra(
+            calcularExtra(
 
-                parseFloat(
+                Number(
                     document.getElementById(
                         "extra2importe"
                     ).value
@@ -1865,12 +1988,12 @@ function calcular() {
     }
 
 
-    /* =========================
+    /* =================================================
        FINIQUITO
-    ========================= */
+    ================================================= */
 
 
-    const total =
+    const totalFiniquito =
         salarioPendiente +
         importeVacaciones +
         extra1 +
@@ -1878,9 +2001,9 @@ function calcular() {
         otros;
 
 
-    /* =========================
-       INDEMNIZACIÓN
-    ========================= */
+    /* =================================================
+       INDEMNIZACION
+    ================================================= */
 
 
     const indemnizacion =
@@ -1892,19 +2015,21 @@ function calcular() {
 
             finIndemnizacion,
 
-            salario
+            salario,
+
+            numeroPagas
 
         );
 
 
     const totalFinal =
-        total +
+        totalFiniquito +
         indemnizacion.importe;
 
 
-    /* =========================
-       MOSTRAR RESULTADOS
-    ========================= */
+    /* =================================================
+       MOSTRAR
+    ================================================= */
 
 
     document.getElementById(
@@ -1951,7 +2076,7 @@ function calcular() {
         "rTotal"
     ).textContent =
         euros(
-            total
+            totalFiniquito
         );
 
 
@@ -1978,9 +2103,50 @@ function calcular() {
         );
 
 
-    /* =========================
-       EXPLICACIÓN
-    ========================= */
+    /* =================================================
+       EXPLICACION
+    ================================================= */
+
+
+    let textoMotivo = "";
+
+
+    if (
+        motivo ===
+        "fin_contrato"
+    ) {
+
+        textoMotivo =
+            "Se ha utilizado como referencia 12 días de salario por año de servicio para determinados contratos temporales.";
+
+    }
+
+    else if (
+        motivo ===
+        "objetivo"
+    ) {
+
+        textoMotivo =
+            "Se ha utilizado como referencia 20 días de salario por año de servicio.";
+
+    }
+
+    else if (
+        motivo ===
+        "improcedente"
+    ) {
+
+        textoMotivo =
+            "Se ha utilizado como referencia 33 días de salario por año de servicio.";
+
+    }
+
+    else {
+
+        textoMotivo =
+            "No se ha añadido una indemnización para el supuesto seleccionado.";
+
+    }
 
 
     let textoSalario = "";
@@ -2002,55 +2168,14 @@ function calcular() {
     ) {
 
         textoSalario =
-            "El salario pendiente se ha estimado según los días del último mes hasta la fecha de finalización.";
+            "El salario pendiente se ha estimado según los días del último mes trabajados.";
 
     }
 
     else {
 
         textoSalario =
-            "Se ha restado del salario estimado la cantidad que indicaste como ya cobrada.";
-
-    }
-
-
-    let textoIndemnizacion = "";
-
-
-    if (
-        motivo ===
-        "fin_contrato"
-    ) {
-
-        textoIndemnizacion =
-            "Se ha utilizado como referencia una indemnización de 12 días de salario por año para determinados contratos temporales.";
-
-    }
-
-    else if (
-        motivo ===
-        "objetivo"
-    ) {
-
-        textoIndemnizacion =
-            "Se ha utilizado como referencia una indemnización de 20 días de salario por año.";
-
-    }
-
-    else if (
-        motivo ===
-        "improcedente"
-    ) {
-
-        textoIndemnizacion =
-            "Se ha utilizado como referencia una indemnización de 33 días de salario por año.";
-
-    }
-
-    else {
-
-        textoIndemnizacion =
-            "No se ha añadido una indemnización para el motivo seleccionado.";
+            "Se ha descontado la cantidad que indicaste como ya cobrada.";
 
     }
 
@@ -2059,70 +2184,86 @@ function calcular() {
         "explicacion"
     ).innerHTML =
 
-        "<strong>¿Cómo se ha calculado?</strong><br><br>" +
+        "<strong>Cómo se ha calculado</strong><br><br>" +
 
         textoSalario +
 
         "<br><br>" +
 
-        "Vacaciones generadas: " +
+        "Has generado aproximadamente " +
 
         vacacionesGeneradas.toFixed(2) +
 
-        " días.<br>" +
-
-        "Vacaciones pendientes: " +
+        " días de vacaciones y tienes " +
 
         vacacionesPendientes.toFixed(2) +
 
-        " días.<br>" +
+        " días pendientes." +
 
-        "Valor utilizado por día: " +
+        "<br><br>" +
 
-        euros(
-            salarioDia
-        ) +
-
-        ".<br><br>" +
-
-        "Las pagas extraordinarias se han calculado " +
-
-        "según las fechas de devengo introducidas." +
+        "Las pagas extraordinarias se han estimado según las fechas de devengo introducidas." +
 
         "<br><br>" +
 
         "<strong>Indemnización:</strong> " +
 
-        textoIndemnizacion;
+        textoMotivo +
+
+        "<br>" +
+
+        "Se han utilizado " +
+
+        mesesAntiguedad(
+            fechaLocal(
+                inicioIndemnizacion
+            ),
+            fechaLocal(
+                finIndemnizacion
+            )
+        ) +
+
+        " meses de antigüedad para la estimación.";
 
 
-    document.getElementById(
-        "resultado"
-    ).style.display =
+    /* MOSTRAR RESULTADO */
+
+
+    const resultado =
+        document.getElementById(
+            "resultado"
+        );
+
+
+    resultado.style.display =
         "block";
 
 
-    document.getElementById(
-        "resultado"
-    ).scrollIntoView({
-        behavior: "smooth"
+    resultado.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
     });
 
 }
 
-
-/* =========================
-   INICIALIZACIÓN
-========================= */
+</script>
 
 
-actualizarPagas();
+<!-- STRUCTURED DATA SEO -->
 
-mostrarSalario();
+<script type="application/ld+json">
 
-actualizarIndemnizacion();
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Calculadora de Finiquito e Indemnización",
+  "applicationCategory": "FinanceApplication",
+  "operatingSystem": "Web",
+  "description": "Calculadora orientativa de finiquito e indemnización laboral en España."
+}
 
 </script>
+
 
 </body>
 </html>
